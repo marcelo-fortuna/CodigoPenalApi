@@ -95,8 +95,8 @@ namespace CodigoPenalApi.Migrations
                         new
                         {
                             Id = 1,
-                            Password = "Admin",
-                            UserName = "Admin"
+                            Password = "Admin1",
+                            UserName = "Administrador"
                         });
                 });
 #pragma warning restore 612, 618

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CodigoPenalApi.Services
 {
-    interface ICodigoPenalService
+    public interface ICodigoPenalService
     { 
       // Codigos Penais
         Task<IEnumerable<CriminalCode>> GetCriminalCodes();

@@ -41,7 +41,7 @@ namespace CodigoPenalApi.Services
         public async Task<IEnumerable<CriminalCode>> GetCriminalCodesByName(string name)
         {
             IEnumerable<CriminalCode> criminalCodes;
-            if (string.IsNullOrWhiteSpace(name))
+            if (!string.IsNullOrWhiteSpace(name))
             {
                 criminalCodes = await _context.CriminalCode.Where(n => n.Name.Contains(name)).ToListAsync();
             }
