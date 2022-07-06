@@ -45,7 +45,7 @@ update-database
 ## Contato
 Twitter - [@nutsfpss](https://twitter.com/nutsfpss)
 
-Discord - [Nuts#0007](https://discord.gg)
+Discord - [Nuts#0007](https://discord.gg) - ID - 793961251331768380
 
 E-Mail - celofortuna@gmail.com
 
