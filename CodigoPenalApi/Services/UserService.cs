@@ -41,7 +41,7 @@ namespace CodigoPenalApi.Services
         public async Task<IEnumerable<User>> GetUsersByName(string name)
         {
             IEnumerable<User> users;
-            if (string.IsNullOrWhiteSpace(name))
+            if (!string.IsNullOrWhiteSpace(name))
             {
                 users = await _context.User.Where(n => n.UserName.Contains(name)).ToListAsync();
             } else {
@@ -55,6 +55,5 @@ namespace CodigoPenalApi.Services
             _context.User.Add(user);
             await _context.SaveChangesAsync();
         }
-
     }
 }

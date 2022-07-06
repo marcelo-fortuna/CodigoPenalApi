@@ -8,6 +8,25 @@ namespace CodigoPenalApi.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "User",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserName = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_User", x => x.Id);
+                });
+
+            migrationBuilder.InsertData(
+                table: "User",
+                columns: new[] { "Id", "Password", "UserName" },
+                values: new object[] { 1, "Admin1", "Administrador" });
+
+            migrationBuilder.CreateTable(
                 name: "CriminalCode",
                 columns: table => new
                 {
@@ -37,25 +56,6 @@ namespace CodigoPenalApi.Migrations
                 {
                     table.PrimaryKey("PK_Status", x => x.Id);
                 });
-
-            migrationBuilder.CreateTable(
-                name: "User",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UserName = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_User", x => x.Id);
-                });
-
-            migrationBuilder.InsertData(
-                table: "User",
-                columns: new[] { "Id", "Password", "UserName" },
-                values: new object[] { 1, "Admin", "Admin" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

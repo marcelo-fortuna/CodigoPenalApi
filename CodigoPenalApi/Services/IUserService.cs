@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CodigoPenalApi.Services
 {
-    interface IUserService
+    public interface IUserService
     { // Users
         Task<IEnumerable<User>> GetUsers();
         Task<User> GetUser(int id);

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CodigoPenalApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220701083405_Inicial")]
+    [Migration("20220706175311_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -97,8 +97,8 @@ namespace CodigoPenalApi.Migrations
                         new
                         {
                             Id = 1,
-                            Password = "Admin",
-                            UserName = "Admin"
+                            Password = "Admin1",
+                            UserName = "Administrador"
                         });
                 });
 #pragma warning restore 612, 618

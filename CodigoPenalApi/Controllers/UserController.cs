@@ -11,7 +11,6 @@ namespace CodigoPenalApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Produces("applications/json")]
     public class UserController : ControllerBase
     {
         private IUserService _userService;
@@ -33,7 +32,58 @@ namespace CodigoPenalApi.Controllers
             }
             catch
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Erro ao obter users.");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Erro ao obter Usuários.");
+            }
+        }
+
+        [HttpGet("UsuariosPorNome")]
+        public async Task<ActionResult<IAsyncEnumerable<User>>> 
+            GetUsersByName([FromQuery] string name)
+        {
+            try
+            {
+                var users = await _userService.GetUsersByName(name);
+
+                if (users.Count() == 0)
+                    return NotFound($"Não existem usuários com o nome: \"{name}\"");
+
+                return Ok(users);
+            }
+            catch
+            {
+                return BadRequest("Request inválido.");
+            }
+        }
+
+        [HttpGet("{id:int}", Name = "GetUsers")]
+        public async Task<ActionResult<User>> GetUsers(int id)
+        {
+            try
+            {
+                var user = await _userService.GetUser(id);
+
+                if (user == null)
+                    return NotFound($"Não existe usuário com id: \"{id}\"");
+
+                return Ok(user);
+            }
+            catch
+            {
+                return BadRequest("Request inválido.");
+            }
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Create(User user)
+        {
+            try
+            {
+                await _userService.CreateUser(user);
+                return CreatedAtRoute(nameof(GetUsers), new { id = user.Id }, user);
+            }
+            catch
+            {
+                return BadRequest("Request inválido.");
             }
         }
     }

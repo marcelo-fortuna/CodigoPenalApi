@@ -23,8 +23,8 @@ namespace CodigoPenalApi.Context
                 new User
                 {
                     Id = 1,
-                    UserName = "Admin",
-                    Password = "Admin"
+                    UserName = "Administrador",
+                    Password = "Admin1"
                 }
             );
         }
