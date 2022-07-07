@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CodigoPenalApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220706175311_Inicial")]
+    [Migration("20220707015815_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,6 +31,9 @@ namespace CodigoPenalApi.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("CreateUserId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(255)
@@ -47,12 +50,46 @@ namespace CodigoPenalApi.Migrations
                     b.Property<int>("PrisionTime")
                         .HasColumnType("int");
 
+                    b.Property<int>("StatusId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("UpdateDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("UpdateUserId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.ToTable("CriminalCode");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreateDate = new DateTime(2022, 7, 6, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreateUserId = 1,
+                            Description = "Proibido fazer ATM em qualquer depêndencia de emprego legal.",
+                            Name = "ATM",
+                            Penalty = 1m,
+                            PrisionTime = 30,
+                            StatusId = 1,
+                            UpdateDate = new DateTime(2022, 7, 6, 0, 0, 0, 0, DateTimeKind.Local),
+                            UpdateUserId = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreateDate = new DateTime(2022, 7, 6, 0, 0, 0, 0, DateTimeKind.Local),
+                            CreateUserId = 1,
+                            Description = "Proibido dar tiro em local de emprego legal.",
+                            Name = "Tiro",
+                            Penalty = 1m,
+                            PrisionTime = 40,
+                            StatusId = 1,
+                            UpdateDate = new DateTime(2022, 7, 6, 0, 0, 0, 0, DateTimeKind.Local),
+                            UpdateUserId = 0
+                        });
                 });
 
             modelBuilder.Entity("CodigoPenalApi.Models.Status", b =>

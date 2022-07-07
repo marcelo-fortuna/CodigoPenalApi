@@ -27,6 +27,36 @@ namespace CodigoPenalApi.Context
                     Password = "Admin1"
                 }
             );
+            modelBuilder.Entity<CriminalCode>().HasData(
+                new CriminalCode
+                {
+                    Id = 1,
+                    Name = "ATM",
+                    Description = "Proibido fazer ATM em qualquer depêndencia de emprego legal.",
+                    Penalty = 1,
+                    PrisionTime = 30,
+                    StatusId = 1,
+                    CreateDate = DateTime.Today,
+                    UpdateDate = DateTime.Today,
+                    CreateUserId = 1,
+                    UpdateUserId = 0
+                }
+            );
+            modelBuilder.Entity<CriminalCode>().HasData(
+                new CriminalCode
+                {
+                    Id = 2,
+                    Name = "Tiro",
+                    Description = "Proibido dar tiro em local de emprego legal.",
+                    Penalty = 1,
+                    PrisionTime = 40,
+                    StatusId = 1,
+                    CreateDate = DateTime.Today,
+                    UpdateDate = DateTime.Today,
+                    CreateUserId = 1,
+                    UpdateUserId = 0
+                }
+            );
         }
     }
 }

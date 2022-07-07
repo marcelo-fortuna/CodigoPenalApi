@@ -44,11 +44,14 @@ namespace CodigoPenalApi.Models
         public decimal Penalty { get; set; }
         [Required]
         public int PrisionTime { get; set; }
-        //fk StatusId
+        [ForeignKey("FK_CriminalCode_Status_StatusId")]
+        public int StatusId { get; set; }
         [Required]
         public DateTime CreateDate { get; set; }
         public DateTime UpdateDate { get; set; }
-        //fk CreateUserId
-        //fk UpdateUserId
+        [ForeignKey("FK_CriminalCode_User_CreateUserId")]
+        public int CreateUserId { get; set; }
+        [ForeignKey("FK_CriminalCode_User_UpdateUserId")]
+        public int UpdateUserId { get; set; }
     }
 }
