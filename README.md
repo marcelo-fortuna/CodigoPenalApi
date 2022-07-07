@@ -20,7 +20,7 @@ Para colocar uma cópia local em execução, siga estas etapas de exemplo simple
 2. Instale o [Microsoft SQL Server Management Studio - 18.12.1](https://docs.microsoft.com/pt-br/sql/ssms/download-sql-server-management-studio-ssms?redirectedfrom=MSDN&view=sql-server-ver16).
 3. Instale o [.NET 5.0](https://dotnet.microsoft.com/en-us/download/dotnet/5.0).
 
-4. Clone o repositorio
+4. [Clone o repositorio](https://docs.github.com/pt/repositories/creating-and-managing-repositories/cloning-a-repository)
    ```sh
    git clone https://github.com/marcelo-fortuna/CodigoPenalApi.git
    ```
