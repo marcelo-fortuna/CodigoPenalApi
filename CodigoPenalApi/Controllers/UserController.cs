@@ -23,7 +23,8 @@ namespace CodigoPenalApi.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<IAsyncEnumerable<User>>> GetUsers()
+        public async Task<ActionResult<IAsyncEnumerable<User>>>
+            GetUsers()
         {
             try
             {
@@ -56,7 +57,8 @@ namespace CodigoPenalApi.Controllers
         }
 
         [HttpGet("{id:int}", Name = "GetUsers")]
-        public async Task<ActionResult<User>> GetUsers(int id)
+        public async Task<ActionResult<User>>
+            GetUsers(int id)
         {
             try
             {
@@ -74,7 +76,8 @@ namespace CodigoPenalApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create(User user)
+        public async Task<ActionResult>
+            Create(User user)
         {
             try
             {
